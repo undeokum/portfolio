@@ -2,26 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: 'regular';
+  src: url('/font/Pretendard-Regular.otf');
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+  font-family: 'medium';
+  src: url('/font/Pretendard-Medium.otf');
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@font-face {
+  font-family: 'light';
+  src: url('/font/Pretendard-Light.otf');
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+@font-face {
+  font-family: 'extra_light';
+  src: url('/font/Pretendard-ExtraLight.otf');
+}
+
+@font-face {
+  font-family: 'thin';
+  src: url('/font/Pretendard-thin.otf');
+}
+
+@font-face {
+  font-family: 'semi_bold';
+  src: url('/font/Pretendard-SemiBold.otf');
+}
+
+@font-face {
+  font-family: 'bold';
+  src: url('/font/Pretendard-Bold.otf');
+}
+
+@font-face {
+  font-family: 'extra_bold';
+  src: url('/font/Pretendard-ExtraBold.otf');
+}
+
+@font-face {
+  font-family: 'black';
+  src: url('/font/Pretendard-Black.otf');
 }
