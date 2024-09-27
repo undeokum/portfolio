@@ -18,14 +18,14 @@ export default function RootLayout({
   return (
     <html lang='ko'>
       <body className='font-regular'>
-        <nav className='fixed bg-white w-full border-b h-24 flex justify-center items-center space-x-40 text-xl z-50'>
+        <nav className='fixed bg-white w-full border-b h-20 flex justify-center items-center space-x-40 text-lg z-50'>
           {
             NAV_NAME.map((name, i) => (
               <Link className='text-gray-500 hover:text-black transition-colors' key={i} href={`/${NAV_LINK[i]}`}>{name}</Link>
             ))
           }
         </nav>
-        <div className='pt-24 max-w-screen-lg mx-auto'>
+        <div className='max-w-screen-lg mx-auto'>
           {children}
         </div>
       </body>
