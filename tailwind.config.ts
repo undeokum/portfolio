@@ -40,7 +40,10 @@ const config: Config = {
       orange: colors.orange,
       blue: colors.blue,
 
-      cblue: '#7194FF'
+      cblue: '#7194FF',
+      gold: '#FFD700',
+      silver: '#C0C0C0',
+      bronze: '#CE8946'
     }
   },
   plugins: [],

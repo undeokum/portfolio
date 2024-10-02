@@ -2,35 +2,54 @@
 import Link from 'next/link'
 import { faBars, faBook, faHome, faLaptop, faLink, faX } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 
 const NAV_NAME = ['홈', '경력', '프로젝트', '링크']
 const NAV_ICON = [faHome, faBook, faLaptop, faLink]
-const NAV_LINK = ['', 'career', 'projects', 'links']
+const NAV_LINK = ['', 'career', 'projects', 'links'].map(s => `/${s}`)
 
 const NavButton = () => {
+    const router = usePathname()
     const [opened, setOpened] = useState(false)
+    useEffect(() => {
+        if(opened){
+            document.body.style = `overflow: hidden`
+        }
+        else {
+            document.body.style = `overflow: auto`
+        }
+    }, [opened])
     return (
-        <div className='flex justify-end'>
-            <div className='fixed bottom-12 flex flex-col items-center space-y-3'>
-                {
-                    opened &&
-                    <div className='p-2 bg-white border space-y-3 rounded-md shadow-md'>
+        <>
+            {
+                opened
+                &&
+                <div className='flex justify-center z-10'>
+                    <div onClick={() => setOpened(!opened)} className='fixed w-screen h-screen bg-black bg-opacity-35' />
+                </div>
+            }
+            <div className={`fixed h-screen right-0 flex flex-col items-center justify-between px-12 py-20 ${opened && 'bg-white border-l'}`}>
+                <nav className={`space-y-10 ${!opened && 'opacity-0'}`}>
+                    <div className='space-y-5'>
                         {
                             NAV_NAME.map((name, i) => (
-                                <Link href={`/${NAV_LINK[i]}`} key={i} className='flex bg-white hover:brightness-90 space-x-3 items-center py-2 pl-3 pr-20 rounded-md'>
+                                <Link href={NAV_LINK[i]} key={i} className={`flex bg-white hover:brightness-95 transition-all rounded-md items-center text-lg space-x-5 pr-32 p-3 ${router == NAV_LINK[i] && 'text-cblue'}`}>
                                     <FontAwesomeIcon icon={NAV_ICON[i]} className='w-6 h-6' />
-                                    <div className='text-lg'>{name}</div>
+                                    <div>{name}</div>
                                 </Link>
                             ))
                         }
                     </div>
-                }
-                <button onClick={() => setOpened(!opened)} className='bg-cblue text-white hover:brightness-90 transition-all p-5 rounded-full flex items-center justify-center shadow-md'>
-                    <FontAwesomeIcon icon={opened ? faX : faBars} className='w-6 h-6' />
+                    <div className='flex justify-center'>
+                        <Link target='_blank' href='https://github.com/undeokum/portfolio' className='hover:text-blue-500 hover:underline transition-colors'>Made with ❤️</Link>
+                    </div>
+                </nav>
+                <button onClick={() => setOpened(!opened)} className={`p-5 hover:brightness-95 transition-all rounded-full flex items-center justify-center ${opened ? 'text-gray-500 bg-white' : 'bg-cblue text-white'}`}>
+                    <FontAwesomeIcon icon={opened ? faX : faBars} className='w-5 h-5' />
                 </button>
             </div>
-        </div>
+        </>
     )
 }
 
