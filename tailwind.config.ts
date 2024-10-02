@@ -42,7 +42,7 @@ const config: Config = {
 
       cblue: '#7194FF',
       gold: '#FFD700',
-      silver: '#C0C0C0',
+      silver: '#BEBEBE',
       bronze: '#CE8946'
     }
   },

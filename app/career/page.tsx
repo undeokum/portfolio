@@ -21,7 +21,7 @@ const AWARDS =
         'bronze'
     ],
     [
-        '제6회 한국코드페어 \'sotizen\' 이라는 작품으로 참가',
+        '제6회 한국코드페어에 팀 \'sotizen\'으로 참가',
         '',
         'bronze'
     ]
@@ -56,7 +56,7 @@ const Career = () => {
                 <ul className='text-lg space-y-2 list-disc'>
                     {
                         AWARDS.map(([name, award, color], i) => (
-                            <li key={i} className='flex space-x-2 items-center'><p>{name}</p><p className={`text-${color} text-silver`}>{award}</p></li>
+                            <li key={i} className='flex space-x-2 items-center'><p>{name}</p><p className={`text-${color}`}>{award}</p></li>
                         ))
                     }
                 </ul>
