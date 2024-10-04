@@ -13,14 +13,11 @@ const NavButton = () => {
     const router = usePathname()
     const [opened, setOpened] = useState(false)
     useEffect(() => {
-        const body = document.querySelector('body')
-        if(body){
-            if(opened){
-                body.style.overflow = 'hidden'
-            }
-            else {
-                body.style.overflow = 'auto'
-            }
+        if(opened){
+            document.body.style.overflow = 'hidden'
+        }
+        else {
+            document.body.style.overflow = 'auto'
         }
     }, [opened])
     return (
