@@ -6,7 +6,15 @@ import Link from 'next/link'
 const SKILLS_NAME = ['html', 'css', 'javascript', 'typescript', 'c', 'c++', 'python', 'dart', 'node.js', 'react', 'next.js', 'tailwind css', 'flutter']
 const SKILLS_IMG = [...SKILLS_NAME.map(n => `/img/skills/${n.replaceAll(' ', '_')}.svg`)]
 
-const AWARDS =
+type ColorType = {
+    bronze: string,
+    silver: string,
+    gold: string
+}
+
+type AwardsType = [string, string, keyof ColorType, string?]
+
+const AWARDS: AwardsType[] =
 [
     [
         '백준 온라인 저지 최고 랭크',
@@ -30,6 +38,12 @@ const AWARDS =
         'bronze'
     ]
 ]
+
+const COLORS: ColorType = {
+    'bronze': 'text-cbronze',
+    'silver': 'text-csilver',
+    'gold': 'text-cgold'
+}
 
 const Career = () => {
     return (
@@ -61,7 +75,10 @@ const Career = () => {
                     {
                         AWARDS.map(([name, award, color, link], i) => (
                             <li key={i} className='flex space-x-4 items-center'>
-                                <div className='flex space-x-2 items-center'><p>{name}</p><p className={`text-c${color}`}>{award}</p></div>
+                                <div className='flex space-x-2 items-center'>
+                                    <p>{name}</p>
+                                    <p className={COLORS[color]}>{award}</p>
+                                </div>
                                 {
                                     link
                                     &&

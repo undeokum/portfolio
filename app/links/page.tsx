@@ -20,7 +20,7 @@ const Links = () => {
                 {
                     LINK_ICONS.map((icon, i) => (
                         <div key={i} className='flex items-center space-x-5'>
-                            <div className={`p-5 bg-[${LINK_COLOR[i]}] rounded-md flex items-center justify-center`}>
+                            <div style={{ backgroundColor: LINK_COLOR[i] }} className={`p-5 rounded-md flex items-center justify-center`}>
                                 <FontAwesomeIcon icon={icon} className='w-6 h-6 text-white' />
                             </div>
                             <div>
