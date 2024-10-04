@@ -41,11 +41,12 @@ const config: Config = {
       blue: colors.blue,
 
       cblue: '#7194FF',
-      gold: '#FFD700',
-      silver: '#BEBEBE',
-      bronze: '#CE8946'
+      cgold: '#FFD700',
+      csilver: '#BEBEBE',
+      cbronze: '#CE8946'
     }
   },
   plugins: [],
 }
+
 export default config

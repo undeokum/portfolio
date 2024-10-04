@@ -1,4 +1,7 @@
+import { faLink } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const SKILLS_NAME = ['html', 'css', 'javascript', 'typescript', 'c', 'c++', 'python', 'dart', 'node.js', 'react', 'next.js', 'tailwind css', 'flutter']
 const SKILLS_IMG = [...SKILLS_NAME.map(n => `/img/skills/${n.replaceAll(' ', '_')}.svg`)]
@@ -8,7 +11,8 @@ const AWARDS =
     [
         '백준 온라인 저지 최고 랭크',
         '실버 5',
-        'silver'
+        'silver',
+        'https://www.acmicpc.net/user/dlawnstjr'
     ],
     [
         '2023 상반기 인천 메타버스 앱 창작 챌린지',
@@ -55,8 +59,15 @@ const Career = () => {
                 </div>
                 <ul className='text-lg space-y-2 list-disc'>
                     {
-                        AWARDS.map(([name, award, color], i) => (
-                            <li key={i} className='flex space-x-2 items-center'><p>{name}</p><p className={`text-${color}`}>{award}</p></li>
+                        AWARDS.map(([name, award, color, link], i) => (
+                            <li key={i} className='flex space-x-4 items-center'>
+                                <div className='flex space-x-2 items-center'><p>{name}</p><p className={`text-c${color}`}>{award}</p></div>
+                                {
+                                    link
+                                    &&
+                                    <Link href={link} className='text-blue-950' target='_blank'><FontAwesomeIcon icon={faLink} className='w-5 h-5' /></Link>
+                                }
+                            </li>
                         ))
                     }
                 </ul>
