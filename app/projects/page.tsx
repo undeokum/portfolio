@@ -13,11 +13,11 @@ const Projects = () => {
         github: string | null
     }[] = [
         {
-            name: 'instend',
-            title: '인스텐드',
+            name: 'instend beta',
+            title: '인스텐드 베타',
             desc: '동네/학교/회사별로 나누어진 익명 제보 서비스',
             link: 'instend.vercel.app',
-            github: 'instend'
+            github: 'undeokum/instend'
         }
     ]
     return (
@@ -32,7 +32,7 @@ const Projects = () => {
                         PROJECTS.map(({name, title, desc, link, github}, i) => (
                             <div key={i} className='space-y-5'>
                                 <div>
-                                    <Image src={`/img/projects/${name}.svg`} alt={name} width={350} height={227.5} className='border rounded-md' />
+                                    <Image src={`/img/projects/${name.replaceAll(' ', '_')}.svg`} alt={name} width={350} height={227.5} className='border rounded-md' />
                                 </div>
                                 <div className='text-lg space-y-2'>
                                     <div className='flex space-x-2 font-semi_bold'>
@@ -46,7 +46,7 @@ const Projects = () => {
                                         <FontAwesomeIcon icon={faLink} className='w-5 h-5' />
                                         <div>{title} 링크</div>
                                     </Link>
-                                    <Link target='_blank' href={`https://github.com/undeokum/${github}`} className='flex text-lg text-blue-600 items-center space-x-2 hover:text-blue-900 hover:underline transition-colors'>
+                                    <Link target='_blank' href={`https://github.com/${github}`} className='flex text-lg text-blue-600 items-center space-x-2 hover:text-blue-900 hover:underline transition-colors'>
                                         <FontAwesomeIcon icon={faGithub} className='w-5 h-5' />
                                         <div>깃허브 링크</div>
                                     </Link>
